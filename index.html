@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        body {
+            margin:0;
+        }
+
+        @font-face {
+            font-family: src;
+            src: url("assets/fonts/SansRoundedC.WOFF");
+        }
+
+        * {
+            color: white;
+            font-family: src;
+            font-size: 24px;
+            text-rendering: geometricPrecision;
+        }
+
+        #overlay-ui {
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            overflow: hidden;
+        }
+
+        #scene-intro, #scene-all-planets {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left:0;
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #scene-all-planets {
+            display: none;
+        }
+
+        #ride-f1,#ride-f2 {
+            width: 351px;
+            height: 163px;
+            max-width: 100%;
+            background-image: url('assets/images/moto-1.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: none;
+        }
+
+        @media screen and (max-width: 320px) {
+            #ride-f1,#ride-f2 {
+                width: 320px;
+                height: 149px;
+            }
+        }
+
+        #ride-f2 {
+            background-image: url('assets/images/moto-2.png');
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #dino-g-1, #dino-g-2 {
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height:100%;
+        }
+
+        #dino-g-1-bubble,#dino-g-2-bubble {
+            width: 211px;
+            height: 215px;
+            background-image: url("assets/images/dino-g-1-bubble.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 240px;
+            right: 110px;
+            z-index: 2;
+            position: absolute;
+            transform-origin: 50% 100%;
+        }
+
+        #dino-g-2-bubble {
+            background-image: url("assets/images/dino-g-2-bubble.png");
+            width: 218px;
+            height: 198px;
+        }
+
+        #dino-g-1-audio-icon, #dino-g-2-audio-icon {
+            position: absolute;
+            top: 35px;
+            left:35px;
+            width: 14px;
+            height: 15px;
+        }
+
+        #dino-g-2-audio-icon {
+            left: 30px;
+        }
+
+        #dino-g-1-bubble span, #dino-g-2-bubble span {
+            letter-spacing: -0.7px;
+            line-height: .9;
+            font-size: 16px;
+            margin: 0 0 10px 5px;
+            pointer-events: none;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 320px){
+            #dino-g-1-bubble span, #dino-g-2-bubble span {
+                letter-spacing: -0.7px;
+                line-height: 1;
+                font-size: 16px;
+                margin: 0 0 10px 5px;
+                pointer-events: none;
+            }
+
+            #dino-g-2-bubble span {
+                font-size: 15px;
+            }
+        }
+
+        #dino-g-1-dino {
+            width: 235px;
+            height: 373px;
+            background-image: url("assets/images/dino.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            bottom:0;
+            right:-37px;
+            pointer-events: none;
+        }
+
+        #main-btn {
+            width: 164px;
+            height: 164px;
+            background-image: url("assets/images/btn-main.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top:50%;
+            left:50%;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-50%) translateX(-50%);
+            z-index: 2;
+        }
+
+        #scene-transition {
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index: 3;
+            display: none;
+        }
+
+        #scene-transition img {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translateY(-50%) translateX(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        #curtain {
+            position: absolute;
+            background: black;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: none;
+            z-index: 4;
+            opacity: 0;
+        }
+
+        #rocket-top {
+            width: 200px;
+            position: absolute;
+            left:0;
+            bottom:-30px;
+            z-index: 2;
+        }
+
+        #fire {
+            position: absolute;
+            width: 70px;
+            left:65px;
+            bottom:-80px;
+        }
+
+        #dino-g-2-rocket {
+            position: absolute;
+            top: 580px;
+            left: 60px;
+        }
+
+        #dino-g-2-bubble {
+            position: absolute;
+            top: 160px;
+            left: 35px;
+        }
+
+        #all-planets-bg {
+            position: absolute;
+            top:0;
+            left:0;
+            height: 100%;
+        }
+
+        #lmb {
+            width: 100%;
+            height: 50px;
+            background-color: #1761a4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            letter-spacing: 1.2px;
+            position: absolute;
+            bottom: 0;
+            left:0;
+        }
+
+        #tips {
+            position: absolute;
+            top:0;
+            left:0;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0);
+        }
+
+        .tip-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        .tip-container.left {
+            margin-left: 150px;
+        }
+
+        .tip-container.right {
+            flex-flow: row-reverse;
+            margin-right: 150px;
+        }
+
+        .logo {
+            margin-bottom: 60px;
+        }
+
+        .tip-container.right .img-wrapper {
+            margin-left: 20px;
+        }
+
+        .tip-container.left .img-wrapper {
+            margin-right: 20px;
+        }
+
+        .tip-wrapper {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .tip-wrapper span {
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .tip-wrapper span:nth-child(1) {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .tip-wrapper span:nth-child(2) {
+            font-size: 12px;
+            line-height: .55;
+            letter-spacing: .65px;
+        }
+
+        @media screen and (max-width: 414px) {
+            .tip-wrapper span:nth-child(1) {
+                font-size: 18px;
+                letter-spacing: 1.4px;
+            }
+
+            .tip-wrapper span:nth-child(2) {
+                font-size: 12px;
+                line-height: 1;
+                letter-spacing: .9px;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            .tip-wrapper span:nth-child(1) {
+                font-size: 18px;
+                letter-spacing: 1.4px;
+            }
+
+            .tip-wrapper span:nth-child(2) {
+                font-size: 12px;
+                line-height: .65;
+                letter-spacing: .9px;
+            }
+        }
+
+        @media screen and (max-width: 320px){
+
+            .tip-container.left {
+                margin-left: 100px;
+            }
+
+            .tip-container.right {
+                flex-flow: row-reverse;
+                margin-right: 100px;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+
+            .tip-container.right .img-wrapper {
+                margin-left: 20px;
+            }
+
+            .tip-container.left .img-wrapper {
+                margin-right: 20px;
+            }
+
+            .tip-wrapper {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-bottom: 10px;
+            }
+
+            .tip-wrapper span {
+                line-height: 1.2;
+                text-align: left;
+            }
+
+            .tip-wrapper span:nth-child(1) {
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .tip-wrapper span:nth-child(2) {
+                font-size: 12px;
+                line-height: 1;
+                letter-spacing: .65px;
+            }
+
+            #dino-g-2-rocket {
+                position: absolute;
+                top: 400px;
+                left: 60px;
+            }
+
+            #dino-g-2-bubble {
+                position: absolute;
+                top: 0px;
+                left: 35px;
+            }
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="overlay-ui">
+
+        <div id="scene-intro">
+            <div id="main-btn"></div>
+            <div id="ride-f1"></div>
+            <div id="ride-f2" class="hide"></div>
+            <div id="dino-g-1">
+                <div id="dino-g-1-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-1-audio-icon">
+                    <audio src="assets/audio/dino-g-1-audio.mp3" id="dino-g-1-audio"></audio>
+                    <span>Нажми кнопку,<br>
+                    чтобы завести<br> двигатель и<br> отправиться<br>
+                    в космическое<br> путешествие.
+                    </span>
+                </div>
+                <div id="dino-g-1-dino"></div>
+            </div>
+        </div>
+
+        <div id="scene-transition">
+            <img src="assets/images/space6.jpg">
+            <img src="assets/images/space5.jpg">
+            <img src="assets/images/space4.jpg">
+            <img src="assets/images/space3.jpg">
+            <img src="assets/images/space2.jpg">
+            <img src="assets/images/space1.jpg">
+        </div>
+        <div id="curtain"></div>
+
+        <div id="scene-all-planets">
+            <img src="assets/images/space-all.png" id="all-planets-bg">
+            <div id="dino-g-2">
+                <div id="dino-g-2-rocket">
+                    <img src="assets/images/dinorocket_new.png" id="rocket-top">
+                    <img src="assets/images/fire.png" id="fire">
+                </div>
+                <div id="dino-g-2-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-2-audio-icon">
+                    <audio src="assets/audio/dino-g-2-audio.mp3" id="dino-g-2-audio"></audio>
+                    <span>
+                        Мы в космосе,<br> друг! Кликни,<br> чтобы узнать, <br>
+как попасть на<br> разные планеты<br> вместе со мной!
+                    </span>
+                </div>
+                <div id="lmb">УЗНАТЬ БОЛЬШЕ</div>
+            </div>
+
+            <div id="tips">
+                <div class="logo">
+                    <img src="assets/images/rastishka-logo.png" width="155">
+                </div>
+
+                <div class="tip-container left">
+                    <div class="img-wrapper">
+                        <img src="assets/images/shazam-1.png" width="68">
+                    </div>
+
+                    <div class="tip-wrapper">
+                        <span>ОТКРОЙТЕ</span>
+                        <span>ПРИЛОЖЕНИЕ<br> SHAZAM</span>
+                    </div>
+                </div>
+
+                <div class="tip-container right">
+                    <div class="img-wrapper">
+                        <img src="assets/images/shazam-2.png" width="67">
+                    </div>
+
+                    <div class="tip-wrapper">
+                        <span>НАЖМИТЕ</span>
+                        <span>ЗНАЧОК КАМЕРЫ</span>
+                    </div>
+                </div>
+
+                <div class="tip-container left">
+                    <div class="img-wrapper">
+                        <img src="assets/images/shazam-3.png" width="67">
+                    </div>
+
+                    <div class="tip-wrapper">
+                        <span>НАВЕДИ</span>
+                        <span>КАМЕРУ ТЕЛЕФОНА<br> НА БУТЫЛОЧКУ</span>
+                    </div>
+                </div>
+
+                <div class="tip-container right">
+                    <div class="img-wrapper">
+                        <img src="assets/images/shazam-4.png" width="65">
+                    </div>
+
+                    <div class="tip-wrapper">
+                        <span>ПОКОРЯЙ</span>
+                        <span>КОСМОС С ДИНО!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="assets/js/three.min.js"></script>
+    <script src="assets/js/Projector.js"></script>
+    <script src="assets/js/DeviceOrientationControls.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
