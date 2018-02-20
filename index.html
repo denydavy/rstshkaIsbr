@@ -79,7 +79,7 @@
             height:100%;
         }
 
-        #dino-g-1-bubble,#dino-g-2-bubble {
+        #dino-g-0-bubble, #dino-g-1-bubble,#dino-g-2-bubble {
             width: 211px;
             height: 215px;
             background-image: url("assets/images/dino-g-1-bubble.png");
@@ -95,13 +95,33 @@
             transform-origin: 50% 100%;
         }
 
+        #dino-g-1-bubble, #dino-g-0-bubble {
+            bottom: 0;
+            right: 15%;
+        }
+
+        #dino-g-0-bubble {
+            background-image: url("assets/images/dino-g-2-bubble.png");
+
+            width: 228px;
+            height: 208px;
+
+        }
+
         #dino-g-2-bubble {
             background-image: url("assets/images/dino-g-2-bubble.png");
             width: 218px;
             height: 198px;
         }
 
-        #dino-g-1-audio-icon, #dino-g-2-audio-icon {
+        #dino-g-1-audio-icon,
+        #dino-g-2-audio-icon,
+        #dino-g-0-audio-icon,
+        #dino-g-t1-audio-icon,
+        #dino-g-t2-audio-icon,
+        #dino-g-t3-audio-icon,
+        #dino-g-t4-audio-icon,
+        #dino-g-t5-audio-icon {
             position: absolute;
             top: 35px;
             left:35px;
@@ -113,13 +133,38 @@
             left: 30px;
         }
 
-        #dino-g-1-bubble span, #dino-g-2-bubble span {
+        #dino-g-1-bubble span,
+        #dino-g-2-bubble span,
+        #dino-g-0-bubble span,
+        #dino-g-t1-bubble span,
+        #dino-g-t2-bubble span,
+        #dino-g-t3-bubble span,
+        #dino-g-t4-bubble span,
+        #dino-g-t5-bubble span {
             letter-spacing: -0.7px;
-            line-height: .9;
+            line-height: .75;
             font-size: 16px;
             margin: 0 0 10px 5px;
             pointer-events: none;
             text-align: center;
+        }
+
+
+        #dino-g-t1-bubble span,
+        #dino-g-t2-bubble span,
+        #dino-g-t3-bubble span,
+        #dino-g-t4-bubble span,
+        #dino-g-t5-bubble span {
+            margin: 0 0 -20px 5px;
+
+        }
+
+        #dino-g-t1-bubble span {
+            margin: 0 0 0px 5px;
+
+        }
+        #dino-g-0-bubble span {
+            margin: 0 0 0 5px;
         }
 
         @media screen and (max-width: 320px){
@@ -133,6 +178,24 @@
 
             #dino-g-2-bubble span {
                 font-size: 15px;
+            }
+
+            #dino-g-0-bubble span,
+            #dino-g-t1-bubble span,
+            #dino-g-t2-bubble span,
+            #dino-g-t3-bubble span,
+            #dino-g-t4-bubble span,
+            #dino-g-t5-bubble span {
+                letter-spacing: -0.7px;
+                line-height: 1;
+                font-size: 16px;
+                margin: 0 0 0px 5px;
+                pointer-events: none;
+                text-align: center;
+            }
+
+            #dino-g-t1-bubble span, #dino-g-t2-bubble span, #dino-g-t3-bubble span,#dino-g-t4-bubble span,#dino-g-t5-bubble span {
+                margin: 0 0 -20px 5px;
             }
         }
 
@@ -240,6 +303,22 @@
             position: absolute;
             bottom: 0;
             left:0;
+            animation: 2s bg linear infinite;
+
+        }
+
+        @keyframes bg {
+            0% {
+                background: #1761a4;
+            }
+
+            50% {
+                background: #1c7ad3;
+            }
+
+            100% {
+                background: #1761a4;
+            }
         }
 
         #tips {
@@ -274,6 +353,13 @@
 
         .logo {
             margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            max-width: 65%;
         }
 
         .tip-container.right .img-wrapper {
@@ -394,8 +480,46 @@
             }
         }
 
+        #arrows {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: space-between;
+            align-items:center;
+        }
 
+        #dino-g-t1-bubble,
+        #dino-g-t2-bubble,
+        #dino-g-t3-bubble,
+        #dino-g-t4-bubble,
+        #dino-g-t5-bubble {
+            background-image: url("assets/images/dino-g-1-bubble.png");
+            width: 218px;
+            height: 198px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
+            right: 15%;
+            z-index: 2;
+            position: absolute;
+            transform-origin: 50% 100%;
+        }
 
+        #dino-g-t1-bubble {
+            background-image: url("assets/images/dino-g-1-bubble.png");
+
+        }
+
+        #dino-g-t5-bubble, #dino-g-t4-bubble, #dino-g-t3-bubble, #dino-g-t2-bubble, #dino-g-t1-bubble {
+            opacity: 0;
+            pointer-events: none;
+        }
 
 
     </style>
@@ -409,6 +533,60 @@
             <div id="ride-f1"></div>
             <div id="ride-f2" class="hide"></div>
             <div id="dino-g-1">
+
+                <div id="dino-g-0-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-0-audio-icon">
+                    <audio src="assets/audio/main.mp3" id="dino-g-0-audio"></audio>
+                    <span>Так выглядит
+                    изнутри <br> моя космическая<br> тачка. Можешь.<br>
+                    осмотреться по<br> сторонам.
+                    </span>
+                </div>
+
+                <div id="dino-g-t1-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t1-audio-icon">
+                    <audio src="assets/audio/t1.wav" id="dino-g-t1-audio"></audio>
+                    <span>
+                        Взгляни! <br>Приборная панель <br>показывает с какой<br> скоростью мы<br> мчимся!
+                    </span>
+                </div>
+
+                <div id="dino-g-t2-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t2-audio-icon">
+                    <audio src="assets/audio/t2.wav" id="dino-g-t2-audio"></audio>
+                    <span>
+                        Это штурвал<br> моей супер-тачки!<br> Скоро, ты за<br> него сядешь!
+                    </span>
+                </div>
+
+                <div id="dino-g-t3-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t3-audio-icon">
+                    <audio src="assets/audio/t3.wav" id="dino-g-t3-audio"></audio>
+                    <span>
+                        Только посмотри<br> на эту приборную <br>панель! На ней<br> указано, где мы<br> находимся.
+                    </span>
+                </div>
+
+                <div id="dino-g-t4-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t4-audio-icon">
+                    <audio src="assets/audio/t4.wav" id="dino-g-t4-audio"></audio>
+                    <span>
+                        Взгляни на эту<br> приборную панель!<br> Справа ты увидишь,<br> сколько топлива<br> осталось в баке.
+                    </span>
+                </div>
+
+                <div id="dino-g-t5-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t5-audio-icon">
+                    <audio src="assets/audio/t5.wav" id="dino-g-t5-audio"></audio>
+                    <span>
+                        Через панорамное<br> стекло моего <br>звездолёта <br>открывается<br> потрясающий вид <br>на космос!
+                    </span>
+                </div>
+
+                <div id="arrows">
+                    <img src="assets/images/al.png" width="70">
+                    <img src="assets/images/ar.png" width="70">
+                </div>
                 <div id="dino-g-1-bubble">
                     <img src="assets/images/sound_off.png" id="dino-g-1-audio-icon">
                     <audio src="assets/audio/dino-g-1-audio.mp3" id="dino-g-1-audio"></audio>
@@ -417,7 +595,7 @@
                     в космическое<br> путешествие.
                     </span>
                 </div>
-                <div id="dino-g-1-dino"></div>
+                <!--<div id="dino-g-1-dino"></div>-->
             </div>
         </div>
 
@@ -451,7 +629,7 @@
 
             <div id="tips">
                 <div class="logo">
-                    <img src="assets/images/rastishka-logo.png" width="155">
+                    <img src="assets/images/group-3.png">
                 </div>
 
                 <div class="tip-container left">

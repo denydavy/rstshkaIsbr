@@ -6,12 +6,151 @@ var cur_ride = window.location.href.split("?ride=")[1];
 
 var transition;
 
-tml.from("#ride-f1", 1, {
-    y: 200, ease: Power3.easeOut, onComplete: function () {
-        // rt = animateRide();
+var t1 = document.querySelector("#dino-g-t1-bubble");
+var t2 = document.querySelector("#dino-g-t2-bubble");
+var t3 = document.querySelector("#dino-g-t3-bubble");
+var t4 = document.querySelector("#dino-g-t4-bubble");
+var t5 = document.querySelector("#dino-g-t5-bubble");
+
+if(t1){
+    t1.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t1-audio");
+        var ai = document.querySelector("#dino-g-t1-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t2){
+    t2.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t2-audio");
+        var ai = document.querySelector("#dino-g-t2-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t3){
+    t3.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t3-audio");
+        var ai = document.querySelector("#dino-g-t3-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t4){
+    t4.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t4-audio");
+        var ai = document.querySelector("#dino-g-t4-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t4){
+    t4.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t4-audio");
+        var ai = document.querySelector("#dino-g-t4-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t5){
+    t5.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t5-audio");
+        var ai = document.querySelector("#dino-g-t5-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+document.querySelector("#dino-g-0-bubble").addEventListener("click", function(){
+    var a = document.querySelector("#dino-g-0-audio");
+    var ai = document.querySelector("#dino-g-0-audio-icon");
+    if(!a.playing){
+        a.play();
+        ai.src = "assets/images/sound_on.png";
+    } else {
+        a.pause();
+        ai.src = "assets/images/sound_off.png";
     }
 });
+
+var arr_tml = new TimelineMax({paused: true, yoyo: true, repeat: -1});
+arr_tml.staggerTo("#arrows img", 1, {opacity:0.3});
+
 tml.from("#dino-g-1-dino", .3, {x: 100, opacity: 0}, "-=.1");
+tml.from("#dino-g-0-bubble", 1, {scale:0, ease: Elastic.easeOut.config(1, .3)});
+tml.to("#dino-g-0-bubble", 1, {opacity:0, delay:6, onComplete: function(){
+    document.querySelector("#arrows").style.display = "flex";
+    arr_tml.play();
+    }});
+if(cur_ride === "moto"){
+    tml.fromTo("#dino-g-t1-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t1-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t1-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t1-bubble").style.pointerEvents = "none";
+        }});
+} else if( cur_ride === "car") {
+    tml.fromTo("#dino-g-t2-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+        document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t2-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "none";
+        }});
+    tml.fromTo("#dino-g-t3-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t3-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t3-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t3-bubble").style.pointerEvents = "none";
+        }});
+} else {
+    tml.fromTo("#dino-g-t4-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t4-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
+        }});
+    tml.fromTo("#dino-g-t5-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t5-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t5-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t5-bubble").style.pointerEvents = "none";
+        }});
+}
 tml.from("#dino-g-1-bubble", 1, {
     scale: 0, ease: Elastic.easeOut.config(1, 0.3), onComplete: function () {
         setTimeout(function () {
@@ -25,7 +164,7 @@ tml.from("#dino-g-1-bubble", 1, {
             });
         }, 5000);
     }
-}, "-=.1");
+});
 tml.play();
 
 
