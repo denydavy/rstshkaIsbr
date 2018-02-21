@@ -11,6 +11,9 @@ var t2 = document.querySelector("#dino-g-t2-bubble");
 var t3 = document.querySelector("#dino-g-t3-bubble");
 var t4 = document.querySelector("#dino-g-t4-bubble");
 var t5 = document.querySelector("#dino-g-t5-bubble");
+var t6 = document.querySelector("#dino-g-t6-bubble");
+var t7 = document.querySelector("#dino-g-t7-bubble");
+var t8 = document.querySelector("#dino-g-t8-bubble");
 
 if(t1){
     t1.addEventListener("click", function(){
@@ -96,59 +99,114 @@ if(t5){
     });
 }
 
-document.querySelector("#dino-g-0-bubble").addEventListener("click", function(){
-    var a = document.querySelector("#dino-g-0-audio");
-    var ai = document.querySelector("#dino-g-0-audio-icon");
-    if(!a.playing){
-        a.play();
-        ai.src = "assets/images/sound_on.png";
-    } else {
-        a.pause();
-        ai.src = "assets/images/sound_off.png";
-    }
-});
+if(t6){
+    t6.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t6-audio");
+        var ai = document.querySelector("#dino-g-t6-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t7){
+    t7.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t7-audio");
+        var ai = document.querySelector("#dino-g-t7-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
+
+if(t8){
+    t8.addEventListener("click", function(){
+        var a = document.querySelector("#dino-g-t8-audio");
+        var ai = document.querySelector("#dino-g-t8-audio-icon");
+        if(!a.playing){
+            a.play();
+            ai.src = "assets/images/sound_on.png";
+        } else {
+            a.pause();
+            ai.src = "assets/images/sound_off.png";
+        }
+    });
+}
 
 var arr_tml = new TimelineMax({paused: true, yoyo: true, repeat: -1});
 arr_tml.staggerTo("#arrows img", 1, {opacity:0.3});
 
 tml.from("#dino-g-1-dino", .3, {x: 100, opacity: 0}, "-=.1");
-tml.from("#dino-g-0-bubble", 1, {scale:0, ease: Elastic.easeOut.config(1, .3)});
-tml.to("#dino-g-0-bubble", 1, {opacity:0, delay:6, onComplete: function(){
-    document.querySelector("#arrows").style.display = "flex";
-    arr_tml.play();
-    }});
+
 if(cur_ride === "moto"){
     tml.fromTo("#dino-g-t1-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
             document.querySelector("#dino-g-t1-bubble").style.pointerEvents = "all";
+
         }});
     tml.to("#dino-g-t1-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
             document.querySelector("#dino-g-t1-bubble").style.pointerEvents = "none";
+
+            document.querySelector("#arrows").style.display = "flex";
+            arr_tml.play();
         }});
-} else if( cur_ride === "car") {
     tml.fromTo("#dino-g-t2-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
-        document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "all";
+            document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "all";
         }});
     tml.to("#dino-g-t2-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
             document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "none";
         }});
-    tml.fromTo("#dino-g-t3-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+} else if( cur_ride === "car") {
+    tml.fromTo("#dino-g-t3-bubble", 1,{opacity:0, scale:0}, {opacity:1,scale:1, ease: Elastic.easeOut.config(1, .3),onComplete: function(){
             document.querySelector("#dino-g-t3-bubble").style.pointerEvents = "all";
         }});
-    tml.to("#dino-g-t3-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
-            document.querySelector("#dino-g-t3-bubble").style.pointerEvents = "none";
+    tml.to("#dino-g-t3-bubble", 1, {opacity:0, delay:6, onComplete: function(){
+            document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
+
+            document.querySelector("#arrows").style.display = "flex";
+            arr_tml.play();
         }});
-} else {
+
     tml.fromTo("#dino-g-t4-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
             document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "all";
         }});
     tml.to("#dino-g-t4-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
             document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
         }});
+
     tml.fromTo("#dino-g-t5-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
             document.querySelector("#dino-g-t5-bubble").style.pointerEvents = "all";
         }});
     tml.to("#dino-g-t5-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
             document.querySelector("#dino-g-t5-bubble").style.pointerEvents = "none";
+        }});
+} else {
+    tml.fromTo("#dino-g-t6-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t6-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t6-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
+            document.querySelector("#arrows").style.display = "flex";
+            arr_tml.play();
+        }});
+    tml.fromTo("#dino-g-t7-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t7-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t7-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t7-bubble").style.pointerEvents = "none";
+        }});
+    tml.fromTo("#dino-g-t8-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+            document.querySelector("#dino-g-t8-bubble").style.pointerEvents = "all";
+        }});
+    tml.to("#dino-g-t8-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+            document.querySelector("#dino-g-t8-bubble").style.pointerEvents = "none";
         }});
 }
 tml.from("#dino-g-1-bubble", 1, {
@@ -315,13 +373,16 @@ document.querySelector("#main-btn").addEventListener("click", function (ev) {
 
 
     var tl = new THREE.TextureLoader();
+    var texture1 = tl.load("assets/images/"+cur_ride+"-1.png");
+    var texture2 = tl.load("assets/images/"+cur_ride+"-2.png");
+    var txtarr = [texture1,texture2];
 
     function animateRide() {
-        var cur_frame = 1;
+        var cur_frame = 0;
 
         return setInterval(function () {
-            cur_frame = cur_frame === 1 ? 2 : 1;
-            ride.material.map = tl.load("assets/images/"+cur_ride+"-" + cur_frame + ".png");
+            cur_frame = cur_frame === 0 ? 1 : 0;
+            ride.material.map = txtarr[cur_frame];
         }, 1000);
     }
 

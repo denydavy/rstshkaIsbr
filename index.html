@@ -121,7 +121,10 @@
         #dino-g-t2-audio-icon,
         #dino-g-t3-audio-icon,
         #dino-g-t4-audio-icon,
-        #dino-g-t5-audio-icon {
+        #dino-g-t5-audio-icon,
+        #dino-g-t6-audio-icon,
+        #dino-g-t7-audio-icon,
+        #dino-g-t8-audio-icon{
             position: absolute;
             top: 35px;
             left:35px;
@@ -140,7 +143,10 @@
         #dino-g-t2-bubble span,
         #dino-g-t3-bubble span,
         #dino-g-t4-bubble span,
-        #dino-g-t5-bubble span {
+        #dino-g-t5-bubble span,
+        #dino-g-t6-bubble span,
+        #dino-g-t7-bubble span,
+        #dino-g-t8-bubble span {
             letter-spacing: -0.7px;
             line-height: .75;
             font-size: 16px;
@@ -154,7 +160,10 @@
         #dino-g-t2-bubble span,
         #dino-g-t3-bubble span,
         #dino-g-t4-bubble span,
-        #dino-g-t5-bubble span {
+        #dino-g-t5-bubble span,
+        #dino-g-t6-bubble span,
+        #dino-g-t7-bubble span,
+        #dino-g-t8-bubble span {
             margin: 0 0 -20px 5px;
 
         }
@@ -175,11 +184,16 @@
             #dino-g-t2-bubble span,
             #dino-g-t3-bubble span,
             #dino-g-t4-bubble span,
-            #dino-g-t5-bubble span {
+            #dino-g-t5-bubble span,
+            #dino-g-t6-bubble span,
+            #dino-g-t7-bubble span,
+            #dino-g-t8-bubble span {
                 line-height: 1;
             }
 
-            #dino-g-t1-bubble span, #dino-g-t2-bubble span, #dino-g-t3-bubble span,#dino-g-t4-bubble span,#dino-g-t5-bubble span {
+            #dino-g-t1-bubble span, #dino-g-t2-bubble span, #dino-g-t3-bubble span,#dino-g-t4-bubble span,#dino-g-t5-bubble span, #dino-g-t6-bubble span,
+            #dino-g-t7-bubble span,
+            #dino-g-t8-bubble span {
                 margin: 0 0 -20px 5px;
             }
         }
@@ -202,17 +216,16 @@
             #dino-g-t2-bubble span,
             #dino-g-t3-bubble span,
             #dino-g-t4-bubble span,
-            #dino-g-t5-bubble span {
+            #dino-g-t5-bubble span,
+            #dino-g-t6-bubble span,
+            #dino-g-t7-bubble span,
+            #dino-g-t8-bubble span {
                 letter-spacing: -0.7px;
                 line-height: 1;
                 font-size: 16px;
-                margin: 0 0 0px 5px;
+                margin: 0 0 -20px 5px;
                 pointer-events: none;
                 text-align: center;
-            }
-
-            #dino-g-t1-bubble span, #dino-g-t2-bubble span, #dino-g-t3-bubble span,#dino-g-t4-bubble span,#dino-g-t5-bubble span {
-                margin: 0 0 -20px 5px;
             }
         }
 
@@ -512,7 +525,10 @@
         #dino-g-t2-bubble,
         #dino-g-t3-bubble,
         #dino-g-t4-bubble,
-        #dino-g-t5-bubble {
+        #dino-g-t5-bubble,
+        #dino-g-t6-bubble,
+        #dino-g-t7-bubble,
+        #dino-g-t8-bubble {
             background-image: url("assets/images/dino-g-1-bubble.png");
             width: 218px;
             height: 198px;
@@ -533,7 +549,7 @@
 
         }
 
-        #dino-g-t5-bubble, #dino-g-t4-bubble, #dino-g-t3-bubble, #dino-g-t2-bubble, #dino-g-t1-bubble {
+        #dino-g-t5-bubble, #dino-g-t4-bubble, #dino-g-t3-bubble, #dino-g-t2-bubble, #dino-g-t1-bubble, #dino-g-t6-bubble, #dino-g-t7-bubble,#dino-g-t8-bubble {
             opacity: 0;
             pointer-events: none;
         }
@@ -551,50 +567,66 @@
             <div id="ride-f2" class="hide"></div>
             <div id="dino-g-1">
 
-                <div id="dino-g-0-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-0-audio-icon">
-                    <audio src="assets/audio/main.mp3" id="dino-g-0-audio"></audio>
-                    <span>Так выглядит
-                    изнутри <br> моя космическая<br> тачка. Можешь.<br>
-                    осмотреться по<br> сторонам.
-                    </span>
-                </div>
-
                 <div id="dino-g-t1-bubble">
                     <img src="assets/images/sound_off.png" id="dino-g-t1-audio-icon">
-                    <audio src="assets/audio/t1.wav" id="dino-g-t1-audio"></audio>
+                    <audio src="assets/audio/moto1.wav" id="dino-g-t1-audio"></audio>
                     <span>
-                        Взгляни! <br>Приборная панель <br>показывает с какой<br> скоростью мы<br> мчимся!
+                        Вот мы и <br>внутри Космобайка.<br> Оглянись по <br>сторонам.
                     </span>
                 </div>
 
                 <div id="dino-g-t2-bubble">
                     <img src="assets/images/sound_off.png" id="dino-g-t2-audio-icon">
-                    <audio src="assets/audio/t2.wav" id="dino-g-t2-audio"></audio>
+                    <audio src="assets/audio/moto2.wav" id="dino-g-t2-audio"></audio>
                     <span>
-                        Это штурвал<br> моей супер-тачки!<br> Скоро, ты за<br> него сядешь!
+                        Взгляни! <br>Приборная панель <br>показывает с какой<br> скоростью мы<br> мчимся!
                     </span>
                 </div>
 
                 <div id="dino-g-t3-bubble">
                     <img src="assets/images/sound_off.png" id="dino-g-t3-audio-icon">
-                    <audio src="assets/audio/t3.wav" id="dino-g-t3-audio"></audio>
-                    <span>
-                        Только посмотри<br> на эту приборную <br>панель! На ней<br> указано, где мы<br> находимся.
+                    <audio src="assets/audio/car1.mp3" id="dino-g-t3-audio"></audio>
+                    <span>Так выглядит
+                    изнутри <br> космическая<br> Тачка. Можешь<br>
+                    осмотреться по<br> сторонам.
                     </span>
                 </div>
 
                 <div id="dino-g-t4-bubble">
                     <img src="assets/images/sound_off.png" id="dino-g-t4-audio-icon">
-                    <audio src="assets/audio/t4.wav" id="dino-g-t4-audio"></audio>
+                    <audio src="assets/audio/car2.wav" id="dino-g-t4-audio"></audio>
                     <span>
-                        Взгляни на эту<br> приборную панель!<br> Справа ты увидишь,<br> сколько топлива<br> осталось в баке.
+                        Это штурвал<br> моей супер-тачки!<br> Скоро ты за<br> него сядешь!
                     </span>
                 </div>
 
                 <div id="dino-g-t5-bubble">
                     <img src="assets/images/sound_off.png" id="dino-g-t5-audio-icon">
-                    <audio src="assets/audio/t5.wav" id="dino-g-t5-audio"></audio>
+                    <audio src="assets/audio/car3.wav" id="dino-g-t5-audio"></audio>
+                    <span>
+                        Только посмотри<br> на эту приборную <br>панель! На ней<br> указано, где мы<br> находимся.
+                    </span>
+                </div>
+
+                <div id="dino-g-t6-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t6-audio-icon">
+                    <audio src="assets/audio/ship1.wav" id="dino-g-t6-audio"></audio>
+                    <span>
+                        Мы внутри<br> космического <br>Звездолёта. <br>Осмотрись по <br>сторонам.
+                    </span>
+                </div>
+
+                <div id="dino-g-t7-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t7-audio-icon">
+                    <audio src="assets/audio/ship2.wav" id="dino-g-t7-audio"></audio>
+                    <span>
+                        Взгляни на эту<br> приборную панель!<br> Справа ты увидишь,<br> сколько топлива<br> осталось в баке.
+                    </span>
+                </div>
+
+                <div id="dino-g-t8-bubble">
+                    <img src="assets/images/sound_off.png" id="dino-g-t8-audio-icon">
+                    <audio src="assets/audio/ship3.wav" id="dino-g-t8-audio"></audio>
                     <span>
                         Через панорамное<br> стекло моего <br>звездолёта <br>открывается<br> потрясающий вид <br>на космос!
                     </span>
