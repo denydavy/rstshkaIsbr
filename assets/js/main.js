@@ -71,20 +71,6 @@ if(t4){
     });
 }
 
-if(t4){
-    t4.addEventListener("click", function(){
-        var a = document.querySelector("#dino-g-t4-audio");
-        var ai = document.querySelector("#dino-g-t4-audio-icon");
-        if(!a.playing){
-            a.play();
-            ai.src = "assets/images/sound_on.png";
-        } else {
-            a.pause();
-            ai.src = "assets/images/sound_off.png";
-        }
-    });
-}
-
 if(t5){
     t5.addEventListener("click", function(){
         var a = document.querySelector("#dino-g-t5-audio");
@@ -246,7 +232,14 @@ ctml.to("#curtain", .5, {
 ctml.to("#curtain", .5, {opacity: 0});
 ctml.from("#dino-g-2-rocket", 2, {y: 600, opacity: 0});
 ctml.to("#dino-g-2-rocket", .5, {x: 90, ease: Power4.easeOut});
-ctml.from("#dino-g-2-bubble", 1, {scale: 0, ease: Elastic.easeOut.config(1, 0.3)});
+ctml.from("#dino-g-2-bubble", 1, {scale: 0, ease: Elastic.easeOut.config(1, 0.3), onComplete: function(){
+    var drf = "";
+
+    setInterval(function(){
+        drf = drf === "" ? "2" : "";
+        document.querySelector("#rocket-top").src = "assets/images/dinorocket_new"+drf+".png";
+    },300);
+    }});
 ctml.from("#lmb", .3, {
     y: 75, delay: 5, onComplete: function () {
         ctml.pause();
