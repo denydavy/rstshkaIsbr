@@ -22,9 +22,11 @@ if(t1){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
         }
     });
 }
@@ -36,9 +38,13 @@ if(t2){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -50,9 +56,13 @@ if(t3){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -64,9 +74,13 @@ if(t4){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -78,9 +92,13 @@ if(t5){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -92,9 +110,13 @@ if(t6){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -106,9 +128,13 @@ if(t7){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -120,9 +146,13 @@ if(t8){
         if(!a.playing){
             a.play();
             ai.src = "assets/images/sound_on.png";
+            ai.style.animation = "none";
+
         } else {
             a.pause();
             ai.src = "assets/images/sound_off.png";
+            ai.style.animation = "2s pulse linear infinite";
+
         }
     });
 }
@@ -263,9 +293,13 @@ document.querySelector("#dino-g-1-bubble").addEventListener("click", function(){
    if(!a.playing){
        a.play();
        ai.src = "assets/images/sound_on.png";
+       ai.style.animation = "none";
+
    } else {
        a.pause();
        ai.src = "assets/images/sound_off.png";
+       ai.style.animation = "2s pulse linear infinite";
+
    }
 });
 
@@ -276,9 +310,13 @@ document.querySelector("#dino-g-2-bubble").addEventListener("click", function(){
     if(!a.playing){
         a.play();
         ai.src = "assets/images/sound_on.png";
+        ai.style.animation = "none";
+
     } else {
         a.pause();
         ai.src = "assets/images/sound_off.png";
+        ai.style.animation = "2s pulse linear infinite";
+
     }
 });
 

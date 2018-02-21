@@ -129,6 +129,20 @@
             top: 35px;
             left:35px;
             width: 15px;
+            animation: 2s pulse linear infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+
+            100%{
+                transform: scale(1);
+            }
         }
 
         #dino-g-2-audio-icon {
