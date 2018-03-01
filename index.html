@@ -139,7 +139,6 @@
             50% {
                 transform: scale(1.8);
             }
-
             100%{
                 transform: scale(1);
             }
@@ -301,11 +300,10 @@
         }
 
         #rocket-top {
-            width: 200px;
-            height: 392px;
+            width: 300px;
             position: absolute;
-            left:0;
-            bottom:-30px;
+            left:-20px;
+            bottom:60px;
             z-index: 2;
         }
 
@@ -347,7 +345,7 @@
             position: absolute;
             bottom: 0;
             left:0;
-            animation: 2s bg linear infinite;
+            animation: 1s bg linear infinite;
 
         }
 
@@ -572,184 +570,188 @@
     </style>
 </head>
 <body>
-    <div id="container"></div>
-    <div id="overlay-ui">
+<audio src="assets/audio/bgm1.mp3" loop id="bgm"></audio>
+<audio src="assets/audio/bgm2.mp3" loop id="bgm2"></audio>
+<audio src="assets/audio/sfx.wav" id="sfx"></audio>
 
-        <div id="scene-intro">
-            <div id="main-btn"></div>
-            <div id="ride-f1"></div>
-            <div id="ride-f2" class="hide"></div>
-            <div id="dino-g-1">
+<div id="container"></div>
+<div id="overlay-ui">
 
-                <div id="dino-g-t1-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t1-audio-icon">
-                    <audio src="assets/audio/moto1.wav" id="dino-g-t1-audio"></audio>
-                    <span>
+    <div id="scene-intro">
+        <div id="main-btn"></div>
+        <div id="ride-f1"></div>
+        <div id="ride-f2" class="hide"></div>
+        <div id="dino-g-1">
+
+            <div id="dino-g-t1-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t1-audio-icon">
+                <audio src="assets/audio/moto1.wav" id="dino-g-t1-audio"></audio>
+                <span>
                         Вот мы и <br>внутри Космобайка.<br> Оглянись по <br>сторонам.
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t2-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t2-audio-icon">
-                    <audio src="assets/audio/moto2.wav" id="dino-g-t2-audio"></audio>
-                    <span>
+            <div id="dino-g-t2-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t2-audio-icon">
+                <audio src="assets/audio/moto2.wav" id="dino-g-t2-audio"></audio>
+                <span>
                         Взгляни! <br>Приборная панель <br>показывает с какой<br> скоростью мы<br> мчимся!
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t3-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t3-audio-icon">
-                    <audio src="assets/audio/car1.wav" id="dino-g-t3-audio"></audio>
-                    <span>Так выглядит
+            <div id="dino-g-t3-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t3-audio-icon">
+                <audio src="assets/audio/car1.wav" id="dino-g-t3-audio"></audio>
+                <span>Так выглядит
                     изнутри <br> космическая<br> Тачка. Можешь<br>
                     осмотреться по<br> сторонам.
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t4-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t4-audio-icon">
-                    <audio src="assets/audio/car2.wav" id="dino-g-t4-audio"></audio>
-                    <span>
+            <div id="dino-g-t4-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t4-audio-icon">
+                <audio src="assets/audio/car2.wav" id="dino-g-t4-audio"></audio>
+                <span>
                         Это штурвал<br> моей супер-тачки!<br> Скоро ты за<br> него сядешь!
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t5-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t5-audio-icon">
-                    <audio src="assets/audio/car3.wav" id="dino-g-t5-audio"></audio>
-                    <span>
+            <div id="dino-g-t5-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t5-audio-icon">
+                <audio src="assets/audio/car3.wav" id="dino-g-t5-audio"></audio>
+                <span>
                         Только посмотри<br> на эту приборную <br>панель! На ней<br> указано, где мы<br> находимся.
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t6-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t6-audio-icon">
-                    <audio src="assets/audio/ship1.wav" id="dino-g-t6-audio"></audio>
-                    <span>
+            <div id="dino-g-t6-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t6-audio-icon">
+                <audio src="assets/audio/ship1.wav" id="dino-g-t6-audio"></audio>
+                <span>
                         Мы внутри<br> космического <br>Звездолёта. <br>Осмотрись по <br>сторонам.
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t7-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t7-audio-icon">
-                    <audio src="assets/audio/ship2.wav" id="dino-g-t7-audio"></audio>
-                    <span>
+            <div id="dino-g-t7-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t7-audio-icon">
+                <audio src="assets/audio/ship2.wav" id="dino-g-t7-audio"></audio>
+                <span>
                         Взгляни на эту<br> приборную панель!<br> Справа ты увидишь,<br> сколько топлива<br> осталось в баке.
                     </span>
-                </div>
+            </div>
 
-                <div id="dino-g-t8-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-t8-audio-icon">
-                    <audio src="assets/audio/ship3.wav" id="dino-g-t8-audio"></audio>
-                    <span>
+            <div id="dino-g-t8-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-t8-audio-icon">
+                <audio src="assets/audio/ship3.wav" id="dino-g-t8-audio"></audio>
+                <span>
                         Через панорамное<br> стекло моего <br>звездолёта <br>открывается<br> потрясающий вид <br>на космос!
                     </span>
-                </div>
+            </div>
 
-                <div id="arrows">
-                    <img src="assets/images/al.png" width="70">
-                    <img src="assets/images/ar.png" width="70">
-                </div>
-                <div id="dino-g-1-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-1-audio-icon">
-                    <audio src="assets/audio/dino-g-1-audio.mp3" id="dino-g-1-audio"></audio>
-                    <span>Нажми кнопку,<br>
+            <div id="arrows">
+                <img src="assets/images/al.png" width="70">
+                <img src="assets/images/ar.png" width="70">
+            </div>
+            <div id="dino-g-1-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-1-audio-icon">
+                <audio src="assets/audio/dino-g-1-audio.mp3" id="dino-g-1-audio"></audio>
+                <span>Нажми кнопку,<br>
                     чтобы завести<br> двигатель и<br> отправиться<br>
                     в космическое<br> путешествие.
                     </span>
-                </div>
-                <!--<div id="dino-g-1-dino"></div>-->
             </div>
+            <!--<div id="dino-g-1-dino"></div>-->
         </div>
+    </div>
 
-        <div id="scene-transition">
-            <img src="assets/images/space6.jpg">
-            <img src="assets/images/space5.jpg">
-            <img src="assets/images/space4.jpg">
-            <img src="assets/images/space3.jpg">
-            <img src="assets/images/space2.jpg">
-            <img src="assets/images/space1.jpg">
-        </div>
-        <div id="curtain"></div>
+    <div id="scene-transition">
+        <img src="assets/images/space6.jpg">
+        <img src="assets/images/space5.jpg">
+        <img src="assets/images/space4.jpg">
+        <img src="assets/images/space3.jpg">
+        <img src="assets/images/space2.jpg">
+        <img src="assets/images/space1.jpg">
+    </div>
+    <div id="curtain"></div>
 
-        <div id="scene-all-planets">
-            <img src="assets/images/space-all.png" id="all-planets-bg">
-            <div id="dino-g-2">
-                <div id="dino-g-2-rocket">
-                    <img src="assets/images/dinorocket_new.png" id="rocket-top">
-                    <img src="assets/images/fire.png" id="fire">
-                </div>
-                <div id="dino-g-2-bubble">
-                    <img src="assets/images/sound_off.png" id="dino-g-2-audio-icon">
-                    <audio src="assets/audio/dino-g-2-audio.mp3" id="dino-g-2-audio"></audio>
-                    <span>
+    <div id="scene-all-planets">
+        <img src="assets/images/space-all.png" id="all-planets-bg">
+        <div id="dino-g-2">
+            <div id="dino-g-2-rocket">
+                <img src="assets/images/dinorocket_new.png" id="rocket-top">
+                <!--<img src="assets/images/fire.png" id="fire">-->
+            </div>
+            <div id="dino-g-2-bubble">
+                <img src="assets/images/sound_off.png" id="dino-g-2-audio-icon">
+                <audio src="assets/audio/dino-g-2-audio.mp3" id="dino-g-2-audio"></audio>
+                <span>
                         Мы в космосе,<br> друг! Кликни,<br> чтобы узнать, <br>
 как попасть на<br> разные планеты<br> вместе со мной!
                     </span>
-                </div>
-                <div id="lmb">УЗНАТЬ БОЛЬШЕ</div>
+            </div>
+            <div id="lmb">УЗНАТЬ БОЛЬШЕ</div>
+        </div>
+
+        <div id="tips">
+            <div class="logo">
+                <img src="assets/images/group-3.png">
             </div>
 
-            <div id="tips">
-                <div class="logo">
-                    <img src="assets/images/group-3.png">
+            <div class="tip-container left">
+                <div class="img-wrapper">
+                    <img src="assets/images/shazam-1.png" width="68">
                 </div>
 
-                <div class="tip-container left">
-                    <div class="img-wrapper">
-                        <img src="assets/images/shazam-1.png" width="68">
-                    </div>
+                <div class="tip-wrapper">
+                    <span>ОТКРОЙ</span>
+                    <span>ПРИЛОЖЕНИЕ<br> SHAZAM</span>
+                </div>
+            </div>
 
-                    <div class="tip-wrapper">
-                        <span>ОТКРОЙ</span>
-                        <span>ПРИЛОЖЕНИЕ<br> SHAZAM</span>
-                    </div>
+            <div class="tip-container right">
+                <div class="img-wrapper">
+                    <img src="assets/images/shazam-2.png" width="67">
                 </div>
 
-                <div class="tip-container right">
-                    <div class="img-wrapper">
-                        <img src="assets/images/shazam-2.png" width="67">
-                    </div>
+                <div class="tip-wrapper">
+                    <span>НАЖМИ</span>
+                    <span>НА ЗНАЧОК КАМЕРЫ</span>
+                </div>
+            </div>
 
-                    <div class="tip-wrapper">
-                        <span>НАЖМИ</span>
-                        <span>НА ЗНАЧОК КАМЕРЫ</span>
-                    </div>
+            <div class="tip-container left">
+                <div class="img-wrapper">
+                    <img src="assets/images/shazam-3.png" width="67">
                 </div>
 
-                <div class="tip-container left">
-                    <div class="img-wrapper">
-                        <img src="assets/images/shazam-3.png" width="67">
-                    </div>
+                <div class="tip-wrapper">
+                    <span>СКАНИРУЙ</span>
+                    <span>МЕТКУ НА<br> БУТЫЛОЧКЕ</span>
+                </div>
+            </div>
 
-                    <div class="tip-wrapper">
-                        <span>СКАНИРУЙ</span>
-                        <span>МЕТКУ НА<br> БУТЫЛОЧКЕ</span>
-                    </div>
+            <div class="tip-container right">
+                <div class="img-wrapper">
+                    <img src="assets/images/shazam-4.png" width="65">
                 </div>
 
-                <div class="tip-container right">
-                    <div class="img-wrapper">
-                        <img src="assets/images/shazam-4.png" width="65">
-                    </div>
-
-                    <div class="tip-wrapper">
-                        <span>УЧАСТВУЙ</span>
-                        <span>В КОСМОГОНКАХ<br> С ДИНО!</span>
-                    </div>
+                <div class="tip-wrapper">
+                    <span>УЧАСТВУЙ</span>
+                    <span>В КОСМОГОНКАХ<br> С ДИНО!</span>
                 </div>
             </div>
         </div>
-
-
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-    <script src="assets/js/three.min.js"></script>
-    <script src="assets/js/Projector.js"></script>
-    <script src="assets/js/DeviceOrientationControls.js"></script>
 
-    <script src="assets/js/main.js"></script>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+<script src="assets/js/three.min.js"></script>
+<script src="assets/js/Projector.js"></script>
+<script src="assets/js/DeviceOrientationControls.js"></script>
+
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>

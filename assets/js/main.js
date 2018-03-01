@@ -3,6 +3,11 @@ var tml = new TimelineMax({paused: true});
 var rt;
 var tr_frames = Array.prototype.slice.call(document.querySelectorAll("#scene-transition img"));
 var cur_ride = window.location.href.split("?ride=")[1];
+var cur_ride_img = document.querySelector("#rocket-top");
+cur_ride_img.src = "assets/images/dino_" + cur_ride + ".png";
+var bgm = document.querySelector("#bgm");
+var bgm2 = document.querySelector("#bgm2");
+var sfx = document.querySelector("#sfx");
 
 var transition;
 
@@ -15,11 +20,12 @@ var t6 = document.querySelector("#dino-g-t6-bubble");
 var t7 = document.querySelector("#dino-g-t7-bubble");
 var t8 = document.querySelector("#dino-g-t8-bubble");
 
-if(t1){
-    t1.addEventListener("click", function(){
+if (t1) {
+    t1.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t1-audio");
         var ai = document.querySelector("#dino-g-t1-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -31,11 +37,13 @@ if(t1){
     });
 }
 
-if(t2){
-    t2.addEventListener("click", function(){
+if (t2) {
+    t2.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t2-audio");
         var ai = document.querySelector("#dino-g-t2-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -49,11 +57,13 @@ if(t2){
     });
 }
 
-if(t3){
-    t3.addEventListener("click", function(){
+if (t3) {
+    t3.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t3-audio");
         var ai = document.querySelector("#dino-g-t3-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -67,11 +77,13 @@ if(t3){
     });
 }
 
-if(t4){
-    t4.addEventListener("click", function(){
+if (t4) {
+    t4.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t4-audio");
         var ai = document.querySelector("#dino-g-t4-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -85,11 +97,13 @@ if(t4){
     });
 }
 
-if(t5){
-    t5.addEventListener("click", function(){
+if (t5) {
+    t5.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t5-audio");
         var ai = document.querySelector("#dino-g-t5-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -103,11 +117,13 @@ if(t5){
     });
 }
 
-if(t6){
-    t6.addEventListener("click", function(){
+if (t6) {
+    t6.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t6-audio");
         var ai = document.querySelector("#dino-g-t6-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -121,11 +137,13 @@ if(t6){
     });
 }
 
-if(t7){
-    t7.addEventListener("click", function(){
+if (t7) {
+    t7.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t7-audio");
         var ai = document.querySelector("#dino-g-t7-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -139,11 +157,13 @@ if(t7){
     });
 }
 
-if(t8){
-    t8.addEventListener("click", function(){
+if (t8) {
+    t8.addEventListener("click", function () {
         var a = document.querySelector("#dino-g-t8-audio");
         var ai = document.querySelector("#dino-g-t8-audio-icon");
-        if(!a.playing){
+        if (!bgm.playing) bgm.play();
+
+        if (!a.playing) {
             a.play();
             ai.src = "assets/images/sound_on.png";
             ai.style.animation = "none";
@@ -158,72 +178,104 @@ if(t8){
 }
 
 var arr_tml = new TimelineMax({paused: true, yoyo: true, repeat: -1});
-arr_tml.staggerTo("#arrows img", 1, {opacity:0.3});
+arr_tml.staggerTo("#arrows img", 1, {opacity: 0.3});
 
 tml.from("#dino-g-1-dino", .3, {x: 100, opacity: 0}, "-=.1");
 
-if(cur_ride === "moto"){
-    tml.fromTo("#dino-g-t1-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+if (cur_ride === "moto") {
+    tml.fromTo("#dino-g-t1-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t1-bubble").style.pointerEvents = "all";
 
-        }});
-    tml.to("#dino-g-t1-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t1-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t1-bubble").style.pointerEvents = "none";
 
             document.querySelector("#arrows").style.display = "flex";
             arr_tml.play();
-        }});
-    tml.fromTo("#dino-g-t2-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+        }
+    });
+    tml.fromTo("#dino-g-t2-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t2-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t2-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t2-bubble").style.pointerEvents = "none";
-        }});
-} else if( cur_ride === "car") {
-    tml.fromTo("#dino-g-t3-bubble", 1,{opacity:0, scale:0}, {opacity:1,scale:1, ease: Elastic.easeOut.config(1, .3),onComplete: function(){
+        }
+    });
+} else if (cur_ride === "car") {
+    tml.fromTo("#dino-g-t3-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t3-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t3-bubble", 1, {opacity:0, delay:6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t3-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
 
             document.querySelector("#arrows").style.display = "flex";
             arr_tml.play();
-        }});
+        }
+    });
 
-    tml.fromTo("#dino-g-t4-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+    tml.fromTo("#dino-g-t4-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t4-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t4-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
-        }});
+        }
+    });
 
-    tml.fromTo("#dino-g-t5-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+    tml.fromTo("#dino-g-t5-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t5-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t5-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t5-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t5-bubble").style.pointerEvents = "none";
-        }});
+        }
+    });
 } else {
-    tml.fromTo("#dino-g-t6-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+    tml.fromTo("#dino-g-t6-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t6-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t6-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t6-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t4-bubble").style.pointerEvents = "none";
             document.querySelector("#arrows").style.display = "flex";
             arr_tml.play();
-        }});
-    tml.fromTo("#dino-g-t7-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+        }
+    });
+    tml.fromTo("#dino-g-t7-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t7-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t7-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t7-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t7-bubble").style.pointerEvents = "none";
-        }});
-    tml.fromTo("#dino-g-t8-bubble", 1, {opacity:0, scale: 0}, {opacity:1, scale:1, ease: Elastic.easeOut.config(1, .3), onComplete: function(){
+        }
+    });
+    tml.fromTo("#dino-g-t8-bubble", 1, {opacity: 0, scale: 0}, {
+        opacity: 1, scale: 1, ease: Elastic.easeOut.config(1, .3), onComplete: function () {
             document.querySelector("#dino-g-t8-bubble").style.pointerEvents = "all";
-        }});
-    tml.to("#dino-g-t8-bubble", 1, {opacity:0, delay: 6, onComplete: function(){
+        }
+    });
+    tml.to("#dino-g-t8-bubble", 1, {
+        opacity: 0, delay: 10, onComplete: function () {
             document.querySelector("#dino-g-t8-bubble").style.pointerEvents = "none";
-        }});
+        }
+    });
 }
 tml.from("#dino-g-1-bubble", 1, {
     scale: 0, ease: Elastic.easeOut.config(1, 0.3), onComplete: function () {
@@ -242,15 +294,12 @@ tml.from("#dino-g-1-bubble", 1, {
 tml.play();
 
 
-var flameTml = new TimelineMax({repeat: -1, yoyo: true});
-flameTml.to("#fire", .3, {y: 10});
-
 var bgTml = new TimelineMax({paused: true});
 
 bgTml.to("#all-planets-bg", 40, {x: -(1600 - window.innerWidth * 2.5)});
 
 var ctml = new TimelineMax({paused: true});
-ctml.addLabel("learnMore", 9.8);
+ctml.addLabel("learnMore", 9.3);
 
 ctml.to("#curtain", .5, {
     opacity: 1, onComplete: function () {
@@ -260,11 +309,12 @@ ctml.to("#curtain", .5, {
     }
 });
 ctml.to("#curtain", .5, {opacity: 0});
-ctml.from("#dino-g-2-rocket", 2, {y: 600, opacity: 0});
-ctml.to("#dino-g-2-rocket", .5, {x: 90, ease: Power4.easeOut});
-ctml.from("#dino-g-2-bubble", 1, {scale: 0, ease: Elastic.easeOut.config(1, 0.3), onComplete: function(){
-
-    }});
+ctml.from("#dino-g-2-rocket", 2, {x: 600, opacity: 0, ease: Power4.easeInOut});
+ctml.from("#dino-g-2-bubble", 1, {
+    scale: 0, ease: Elastic.easeOut.config(1, 0.3), onComplete: function () {
+        sfx.pause();
+    }
+});
 ctml.from("#lmb", .3, {
     y: 75, delay: 5, onComplete: function () {
         ctml.pause();
@@ -272,8 +322,7 @@ ctml.from("#lmb", .3, {
 });
 ctml.to("#dino-g-2-bubble", .4, {opacity: 0});
 ctml.to("#lmb", .3, {y: 50});
-ctml.to("#dino-g-2-rocket", 1, {x: 45});
-ctml.to("#dino-g-2-rocket", 1, {y: -700});
+ctml.to("#dino-g-2-rocket", 1, {x: -700, ease: Power4.easeIn});
 ctml.from("#tips", 1, {y: 700});
 ctml.to("#tips", .4, {backgroundColor: "rgba(0,0,0,.5)"});
 
@@ -282,30 +331,33 @@ document.querySelector("#lmb").addEventListener("click", function () {
     ctml.play();
 });
 
-document.querySelector("#dino-g-1-bubble").addEventListener("click", function(){
-   var a = document.querySelector("#dino-g-1-audio");
-   var ai = document.querySelector("#dino-g-1-audio-icon");
-   if(!a.playing){
-       a.play();
-       ai.src = "assets/images/sound_on.png";
-       ai.style.animation = "none";
+document.querySelector("#dino-g-1-bubble").addEventListener("click", function () {
+    var a = document.querySelector("#dino-g-1-audio");
+    var ai = document.querySelector("#dino-g-1-audio-icon");
 
-   } else {
-       a.pause();
-       ai.src = "assets/images/sound_off.png";
-       ai.style.animation = "2s pulse linear infinite";
+    if (!a.playing) {
+        a.play();
+        ai.src = "assets/images/sound_on.png";
+        ai.style.animation = "none";
 
-   }
+    } else {
+        a.pause();
+        ai.src = "assets/images/sound_off.png";
+        ai.style.animation = "2s pulse linear infinite";
+
+    }
 });
 
 var dint = null;
 
-document.querySelector("#dino-g-2-bubble").addEventListener("click", function(){
+document.querySelector("#dino-g-2-bubble").addEventListener("click", function () {
     var a = document.querySelector("#dino-g-2-audio");
     var ai = document.querySelector("#dino-g-2-audio-icon");
     var dino = document.querySelector("#rocket-top");
+    if (!bgm2.playing) bgm2.play();
 
-    if(!a.playing){
+
+    if (!a.playing) {
         a.play();
         ai.src = "assets/images/sound_on.png";
         ai.style.animation = "none";
@@ -318,24 +370,24 @@ document.querySelector("#dino-g-2-bubble").addEventListener("click", function(){
 
     var drf = "";
 
-    if(dint === null){
-        dint = setInterval(function(){
+    if (dint === null) {
+        dint = setInterval(function () {
             drf = drf === "" ? "2" : "";
-            document.querySelector("#rocket-top").src = "assets/images/dinorocket_new"+drf+".png";
-        },300);
+            document.querySelector("#rocket-top").src = "assets/images/dino_" + cur_ride + drf + ".png";
+        }, 300);
     }
 });
 
-document.querySelector("#dino-g-2-audio").addEventListener("ended", function(){
+document.querySelector("#dino-g-2-audio").addEventListener("ended", function () {
     clearInterval(dint);
-    document.querySelector("#rocket-top").src = "assets/images/dinorocket_new.png";
+    document.querySelector("#rocket-top").src = "assets/images/dino_" + cur_ride + ".png";
     dint = null;
 
 });
 
 document.querySelector("#dino-g-2-audio").addEventListener("pause", function () {
     clearInterval(dint);
-    document.querySelector("#rocket-top").src = "assets/images/dinorocket_new.png";
+    document.querySelector("#rocket-top").src = "assets/images/dino_" + cur_ride + ".png";
     dint = null;
 });
 
@@ -343,6 +395,8 @@ document.querySelector("#main-btn").addEventListener("click", function (ev) {
     console.log('click');
     document.querySelector("#scene-intro").style.display = "none";
     document.querySelector("#scene-transition").style.display = "block";
+    bgm.pause();
+    sfx.play();
     transition = setInterval(function () {
         if (tr_frames.length > 2) {
             tr_frames.pop().classList.add('hide');
@@ -388,16 +442,16 @@ document.querySelector("#main-btn").addEventListener("click", function (ev) {
         })
     );
 
-    switch (cur_ride){
+    switch (cur_ride) {
         case "car":
             var ride = new THREE.Mesh(
-                new THREE.PlaneGeometry(3,1, 32), //car
+                new THREE.PlaneGeometry(3, 1, 32), //car
                 new THREE.MeshBasicMaterial({
                     transparent: true,
                     map: new THREE.TextureLoader().load('assets/images/car-1.png')
                 })
             );
-            ride.position.set(0,.03,-.6); //car
+            ride.position.set(0, .03, -.6); //car
             break;
         case "ship":
             var ride = new THREE.Mesh(
@@ -411,21 +465,21 @@ document.querySelector("#main-btn").addEventListener("click", function (ev) {
             break;
         case "moto":
             var ride = new THREE.Mesh(
-                new THREE.PlaneGeometry(.8,.4,32), //bike
+                new THREE.PlaneGeometry(.8, .4, 32), //bike
                 new THREE.MeshBasicMaterial({
                     transparent: true,
                     map: new THREE.TextureLoader().load('assets/images/moto-1.png')
                 })
             );
-            ride.position.set(.1,-.2,-.5); //bike
+            ride.position.set(.1, -.2, -.5); //bike
             break;
     }
 
 
     var tl = new THREE.TextureLoader();
-    var texture1 = tl.load("assets/images/"+cur_ride+"-1.png");
-    var texture2 = tl.load("assets/images/"+cur_ride+"-2.png");
-    var txtarr = [texture1,texture2];
+    var texture1 = tl.load("assets/images/" + cur_ride + "-1.png");
+    var texture2 = tl.load("assets/images/" + cur_ride + "-2.png");
+    var txtarr = [texture1, texture2];
 
     function animateRide() {
         var cur_frame = 0;
